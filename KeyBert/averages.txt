@@ -1,0 +1,32 @@
+Base (Base Transformer Model): 71.13387423935096
+Max Sum MegaSmall-Candidates (Base Transformer Model): 71.13387423935096
+Base (Default Model): 70.62515212981737
+Max Sum MegaSmall-Candidates (Default Model): 70.62515212981737
+MMR Low Diversity (Base Transformer Model): 69.98012170385397
+MMR Low Diversity (Default Model): 68.98864097363084
+Base (TensorFlow Model): 66.68478701825558
+Max Sum MegaSmall-Candidates (TensorFlow Model): 66.68478701825558
+MMR Mid Diversity (Base Transformer Model): 66.54726166328606
+Max Sum Low-Candidates (Base Transformer Model): 66.19716024340774
+Max Sum Low-Candidates (Default Model): 65.3821501014199
+MMR Mid Diversity (Default Model): 64.67139959432053
+Max Sum Mid-Candidates (Base Transformer Model): 63.774036511156154
+MMR Low Diversity (TensorFlow Model): 63.22068965517244
+Max Sum Mid-Candidates (Default Model): 63.15862068965519
+Max Sum Low-Candidates (TensorFlow Model): 61.49614604462475
+Max Sum High-Candidates (Base Transformer Model): 61.462880324543676
+Max Sum High-Candidates (Default Model): 60.28356997971602
+Max Sum Mid-Candidates (TensorFlow Model): 59.044624746450346
+Max Sum High-Candidates (TensorFlow Model): 56.89898580121706
+MMR High Diversity (Default Model): 56.75902636916834
+MMR High Diversity (Base Transformer Model): 55.602839756592296
+MMR Mid Diversity (TensorFlow Model): 55.57200811359024
+Max Sum Mid-Candidates (Genism Model): 50.936713995943215
+Base (Genism Model): 50.82596348884383
+Max Sum MegaSmall-Candidates (Genism Model): 50.82596348884383
+Max Sum Low-Candidates (Genism Model): 50.6344827586207
+MMR Low Diversity (Genism Model): 50.552129817444225
+MMR High Diversity (TensorFlow Model): 50.16916835699793
+Max Sum High-Candidates (Genism Model): 49.94482758620686
+MMR Mid Diversity (Genism Model): 48.14604462474644
+MMR High Diversity (Genism Model): 39.756592292089245

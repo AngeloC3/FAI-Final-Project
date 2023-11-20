@@ -1,0 +1,7 @@
+https://github.com/LIAAD/KeywordExtractor-Datasets
+
+https://maartengr.github.io/KeyBERT/guides/embeddings.html
+
+https://www.sbert.net/docs/pretrained_models.html
+
+https://github.com/MaartenGr/keyBERT
