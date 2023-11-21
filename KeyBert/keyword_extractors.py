@@ -1,6 +1,3 @@
-from sentence_transformers import SentenceTransformer
-
-
 def no_params(doc, kw_model):
     return kw_model.extract_keywords(doc, keyphrase_ngram_range=(1, 3), stop_words='english')
 
