@@ -33,7 +33,3 @@ class Scraper:
         # Close the browser window
         driver.quit()
         return string
-
-
-String = Scraper.scrape("apple")
-print(len(String))
