@@ -39,6 +39,6 @@ else:
 if mode:
     n = int(input("How many of the top n similar keywords would you like to see? "))
     s = Similarity(n)
-    print(s.top_n_similar_words(list_of_topics, keyword, n))
+    print(s.top_n_similar_words(list_of_topics, keyword))
 else:
     print(keyword)
