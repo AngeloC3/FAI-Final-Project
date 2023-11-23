@@ -6,8 +6,8 @@ from Scraper.Scraper import Scraper
 print("Welcome to the keyword generator.\n")
 topic = input(
     "Please enter the wiki topic for which you want to generate keywords: ")
-mode = bool(input(
-    "Enter 0 if you want to use see the keyword itself and 1 if you want to match it with a list of keywords: "))
+mode = bool(int(input(
+    "Enter 0 if you want to use see the keyword itself and 1 if you want to match it with a list of keywords: ")))
 list_of_topics = []
 if mode:
     while True:
@@ -26,7 +26,7 @@ else:
 scraper = Scraper()
 document = scraper.scrape(topic)
 
-e_type = bool(input("Enter 0 for keyBERT extractor and 1 for LDA extractor"))
+e_type = bool(int(input("Enter 0 for keyBERT extractor and 1 for LDA extractor")))
 
 
 if e_type:  # Use keyBERT
