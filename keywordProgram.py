@@ -1,5 +1,5 @@
-from similarity import Similarity
-from lda import LDAextractor
+from similarity.Similarity import Similarity
+from lda.LDAextractor import LDA_extractor
 from KeyBert.keybert_extractor import KeyBertExtractor
 from Scraper.Scraper import Scraper
 
@@ -26,14 +26,14 @@ else:
 scraper = Scraper()
 document = scraper.scrape(topic)
 
-e_type = bool(int(input("Enter 0 for keyBERT extractor and 1 for LDA extractor")))
+e_type = bool(int(input("Enter 0 for keyBERT extractor and 1 for LDA extractor: ")))
 
 
-if e_type:  # Use keyBERT
+if not e_type:  # Use keyBERT
     e = KeyBertExtractor()
     keyword = e.extract_keywords(document)
 else:
-    l = LDAextractor()
+    l = LDA_extractor()
     keyword = l.get_keywords(document, 10)
 
 if mode:
