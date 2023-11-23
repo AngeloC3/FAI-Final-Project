@@ -1,6 +1,6 @@
 import os
 from fuzzywuzzy import fuzz
-from keyword_extractors import *
+from keyword_extractors_methods import *
 from keybert import KeyBERT
 from tqdm import tqdm
 import tensorflow_hub

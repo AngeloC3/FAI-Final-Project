@@ -1,6 +1,6 @@
 from similarity import Similarity
 from lda import LDAextractor
-from KeyBert import KeyBertExtractor
+from KeyBert.keybert_extractor import KeyBertExtractor
 from Scraper.Scraper import Scraper
 
 print("Welcome to the keyword generator.\n")
