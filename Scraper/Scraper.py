@@ -26,7 +26,7 @@ class Scraper:
             para = text.text
             para = re.sub("[\(\[].*?[\)\]]", "", para)
             string = string + para
-            print(para)
+            # print(para)
 
         input("Press Enter to close the browser...")
 
