@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 
 class Scraper:
 
-    def scrape(keyword):
+    def scrape(self, keyword):
         '''Input : Keyword: Scaper will scarpe keyword's wikipidia page 
         Enter to close up the browser
         returns a string of the extracted info'''
