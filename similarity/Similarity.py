@@ -2,12 +2,13 @@ import numpy as np
 from scipy.spatial.distance import cosine
 from gensim.models import KeyedVectors
 
-class Similarity:
 
-    def __init__(n):
+class Similarity:
+    def __init__(self,n):
         self.n = n
+  
     def calculate_phrase_similarity(self,phrase1, phrase2):
-        word_vectors = KeyedVectors.load("fasttext_wiki_model")
+        word_vectors = KeyedVectors.load("similarity/fasttext_wiki_model")
         # Tokenize and get vectors for each word in the phrases
         tokens1 = phrase1.split()
         tokens2 = phrase2.split()
@@ -33,20 +34,20 @@ class Similarity:
         max_sim=[]
         similarities = dict()
         for i in list_of_classes:
-            similarities[i] = calculate_phrase_similarity(i, generated_keyword)
+            similarities[i] = self.calculate_phrase_similarity(i, generated_keyword)
         for i in range(n):
             k = max(similarities, key=lambda k: similarities[k])
             max_sim.append(k)
             similarities[k] = 0
         return max_sim
 
-    
+
 
 
 # phrase1 = "apple"
 # phrase2 = "banana"
-
-# phrase_similarity = calculate_phrase_similarity(phrase1, phrase2)
+# c = Similarity(3)
+# phrase_similarity = c.calculate_phrase_similarity(phrase1, phrase2)
 
 # if phrase_similarity is not None:
 #     print(f"Similarity between '{phrase1}' and '{phrase2}': {phrase_similarity:.2f}")
@@ -55,4 +56,4 @@ class Similarity:
 
 # list1 = ['apple','pear','strawberry','blueberry','basketball']
 # keyword = 'banana'
-# print(top_n_similar_words(list1,keyword,3))
+# print(c.top_n_similar_words(list1,keyword))
