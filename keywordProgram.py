@@ -39,6 +39,20 @@ else:
 if mode:
     n = int(input("How many of the top n similar keywords would you like to see? "))
     s = Similarity(n)
-    print(s.top_n_similar_words(list_of_topics, keyword))
+    max_sim =[]
+    d = dict()
+    for i in keyword:
+        keys = s.top_n_similar_words(list_of_topics, i)
+        for j in keys:
+            if j in d.keys():
+                d[j]+=1
+            else:
+                d[j]=1
+    for i in range(n):
+        k = max(d, key=lambda k: d[k])
+        max_sim.append(k)
+        d[k] = 0
+
+    print(max_sim)
 else:
     print(keyword)
