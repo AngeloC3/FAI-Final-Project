@@ -7,6 +7,8 @@ class KeyBertExtractor:
 
     def extract_keywords(self, doc, ngram_range=(1, 3), use_mmr=False, diversity=.25):
         if use_mmr:
-            return self.model.extract_keywords(doc, keyphrase_ngram_range=ngram_range, stop_words='english',
+            keywords = self.model.extract_keywords(doc, keyphrase_ngram_range=ngram_range, stop_words='english',
                                                use_mmr=True, diversity=diversity)
-        return self.model.extract_keywords(doc, keyphrase_ngram_range=ngram_range, stop_words='english')
+        else:
+            keywords = self.model.extract_keywords(doc, keyphrase_ngram_range=ngram_range, stop_words='english')
+        return [keyword_tuple[0] for keyword_tuple in keywords]
