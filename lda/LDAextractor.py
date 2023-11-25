@@ -83,7 +83,9 @@ class LDA_extractor:
 
     def get_keywords(self, 
                      corpus_str : str,
-                     sentences_per_doc : int):
+                     num_keywords : int,
+                     sentences_per_doc = 25):
+        
         self.corpus = corpus_str
         self.spd = sentences_per_doc
         docs = self.make_docs_from_str(self.corpus, sentences_per_doc = self.spd, show_num_sentences = False)
@@ -112,6 +114,9 @@ class LDA_extractor:
 
         tags = self.topics_to_tags(topics)
 
-        return tags
-    
+        keywords = []
+        for ind, key in enumerate(tags.keys()):
+            if ind < num_keywords:
+                keywords.append(key)
 
+        return keywords
