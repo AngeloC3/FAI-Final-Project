@@ -48,9 +48,9 @@ bar_width = 0.25
 bar_positions = np.arange(len(suffixes))
 
 # Create bar plots
-plt.bar(bar_positions - bar_width, base_avgs, width=bar_width, label='Base')
-plt.bar(bar_positions, mmr_avgs, width=bar_width, label='MMR')
-plt.bar(bar_positions + bar_width, max_avgs, width=bar_width, label='Max')
+plt.bar(bar_positions - bar_width, base_avgs, width=bar_width, label='Base', color='grey')
+plt.bar(bar_positions, mmr_avgs, width=bar_width, label='MMR', color='lightcoral')
+plt.bar(bar_positions + bar_width, max_avgs, width=bar_width, label='Max Sum', color='deepskyblue')
 
 # Customize the plot
 plt.xlabel('Models')
