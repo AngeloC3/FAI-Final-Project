@@ -21,6 +21,10 @@ Max Sum High-Candidates (TensorFlow Model): 56.89898580121706
 MMR High Diversity (Default Model): 56.75902636916834
 MMR High Diversity (Base Transformer Model): 55.602839756592296
 MMR Mid Diversity (TensorFlow Model): 55.57200811359024
+
+LDA - 25 - 54.08073022312373
+LDA - 5 - 53.172008113590266
+
 Max Sum Mid-Candidates (Genism Model): 50.936713995943215
 Base (Genism Model): 50.82596348884383
 Max Sum MegaSmall-Candidates (Genism Model): 50.82596348884383

@@ -1,7 +1,7 @@
 import gensim
 from gensim.utils import simple_preprocess
 import nltk
-nltk.download('stopwords')
+#nltk.download('stopwords')
 from nltk.corpus import stopwords
 stop_words = stopwords.words('english')
 stop_words.extend(['from', 'subject', 're', 'edu', 'use'])
@@ -90,8 +90,8 @@ class LDA_extractor:
         self.spd = sentences_per_doc
         docs = self.make_docs_from_str(self.corpus, sentences_per_doc = self.spd, show_num_sentences = False)
         
-        print(f"number of docs : {len(docs)}")
-        print(f"number of sentences per doc : {self.spd}")
+        # print(f"number of docs : {len(docs)}")
+        # print(f"number of sentences per doc : {self.spd}")
 
         # data = re.sub('[,\.!?]', '', data) #remove punctuation
         docs = list(map(lambda x: re.sub('[,\.!?]', '', x), docs))

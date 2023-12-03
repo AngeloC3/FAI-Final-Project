@@ -13,6 +13,7 @@ class Scraper:
         options = webdriver.ChromeOptions()
         options.add_experimental_option('excludeSwitches', ['enable-logging'])
         options.add_argument('window-size=1200x7000')
+        options.add_argument('--headless')
 
         string = ''
 
@@ -28,7 +29,7 @@ class Scraper:
             string = string + para
             # print(para)
 
-        input("Press Enter to close the browser...")
+        #input("Press Enter to close the browser...")
 
         # Close the browser window
         driver.quit()
