@@ -3,19 +3,19 @@ import numpy as np
 
 # Provided data
 configurations = [
-    "Base Transformer", "Max Sum MegaSmall-Candidates Transformer", "Base Default",
-    "Max Sum MegaSmall-Candidates Default", "MMR Low Diversity Transformer",
-    "MMR Low Diversity Default", "Base TensorFlow", "Max Sum MegaSmall-Candidates TensorFlow",
-    "MMR Mid Diversity Transformer", "Max Sum Low-Candidates Transformer", "Max Sum Low-Candidates Default",
-    "MMR Mid Diversity Default", "Max Sum Mid-Candidates Transformer", "MMR Low Diversity TensorFlow",
-    "Max Sum Mid-Candidates Default", "Max Sum Low-Candidates TensorFlow",
-    "Max Sum High-Candidates Transformer", "Max Sum High-Candidates Default",
-    "Max Sum Mid-Candidates TensorFlow", "Max Sum High-Candidates TensorFlow",
-    "MMR High Diversity Default", "MMR High Diversity Transformer", "MMR Mid Diversity TensorFlow",
-    "Max Sum Mid-Candidates Gensim", "Base Gensim", "Max Sum MegaSmall-Candidates Gensim",
-    "Max Sum Low-Candidates Gensim", "MMR Low Diversity Gensim",
-    "MMR High Diversity TensorFlow", "Max Sum High-Candidates Gensim",
-    "MMR Mid Diversity Gensim", "MMR High Diversity Gensim"
+    "Base all-mpnet-base-v2", "Max Sum MegaSmall-Candidates all-mpnet-base-v2", "Base all-MiniLM-L6-v2",
+    "Max Sum MegaSmall-Candidates all-MiniLM-L6-v2", "MMR Low Diversity all-mpnet-base-v2",
+    "MMR Low Diversity all-MiniLM-L6-v2", "Base Universal-Sentence-Encoder", "Max Sum MegaSmall-Candidates Universal-Sentence-Encoder",
+    "MMR Mid Diversity all-mpnet-base-v2", "Max Sum Low-Candidates all-mpnet-base-v2", "Max Sum Low-Candidates all-MiniLM-L6-v2",
+    "MMR Mid Diversity all-MiniLM-L6-v2", "Max Sum Mid-Candidates all-mpnet-base-v2", "MMR Low Diversity Universal-Sentence-Encoder",
+    "Max Sum Mid-Candidates all-MiniLM-L6-v2", "Max Sum Low-Candidates Universal-Sentence-Encoder",
+    "Max Sum High-Candidates all-mpnet-base-v2", "Max Sum High-Candidates all-MiniLM-L6-v2",
+    "Max Sum Mid-Candidates Universal-Sentence-Encoder", "Max Sum High-Candidates Universal-Sentence-Encoder",
+    "MMR High Diversity all-MiniLM-L6-v2", "MMR High Diversity all-mpnet-base-v2", "MMR Mid Diversity Universal-Sentence-Encoder",
+    "Max Sum Mid-Candidates Fasttest-wn-sw-300", "Base Fasttest-wn-sw-300", "Max Sum MegaSmall-Candidates Fasttest-wn-sw-300",
+    "Max Sum Low-Candidates Fasttest-wn-sw-300", "MMR Low Diversity Fasttest-wn-sw-300",
+    "MMR High Diversity Universal-Sentence-Encoder", "Max Sum High-Candidates Fasttest-wn-sw-300",
+    "MMR Mid Diversity Fasttest-wn-sw-300", "MMR High Diversity Fasttest-wn-sw-300"
 ]
 
 scores = [
@@ -26,7 +26,7 @@ scores = [
 ]
 
 # Grouping configurations based on prefix
-suffixes = ["Default", "Transformer", "TensorFlow", "Gensim"]
+suffixes = ["all-MiniLM-L6-v2", "all-mpnet-base-v2", "Universal-Sentence-Encoder", "Fasttest-wn-sw-300"]
 
 
 # Grouping scores
@@ -56,11 +56,16 @@ plt.bar(bar_positions + bar_width, max_avgs, width=bar_width, label='Max Sum', c
 plt.xlabel('Models')
 plt.ylabel('Average Scores')
 plt.title('Average Scores for Different Models')
-plt.xticks(bar_positions, suffixes)
+
+# Rotate x-labels
+plt.xticks(bar_positions, suffixes, rotation=10, ha="right")
+plt.tight_layout()
+
 plt.legend()
+plt.savefig("KeyBert/images/model_scores.png")
 
 # Show the plot
-plt.savefig("images/model_scores.png")
+plt.savefig("KeyBert/images/model_scores.png")
 
 setups = ["Base",
           "Max Sum Low-Candidates", "Max Sum Mid-Candidates", "Max Sum High-Candidates",
@@ -96,22 +101,22 @@ plt.xticks(bar_positions, setups, rotation=10, ha='right')
 
 # Show the plot
 plt.tight_layout()
-plt.savefig("images/setup_scores.png")
+plt.savefig("KeyBert/images/setup_scores.png")
 
 gensim_scores = [score for config, score in zip(configurations, scores)
-                 if "Gensim" in config or config == "MMR High Diversity TensorFlow"]
+                 if "Fasttest-wn-sw-300" in config or config == "MMR High Diversity Universal-Sentence-Encoder"]
 lda_scores = [54.08073022312373, 53.172008113590266]
 
 bar_positions = np.arange(len(gensim_scores) + len(lda_scores))
-colors = {'Gensim': 'deepskyblue', 'LDA': 'lightcoral'}
-bar_colors = [colors['Gensim']] * len(gensim_scores) + [colors['LDA']] * len(lda_scores)
+colors = {'Fasttest-wn-sw-300': 'deepskyblue', 'LDA': 'lightcoral'}
+bar_colors = [colors['Fasttest-wn-sw-300']] * len(gensim_scores) + [colors['LDA']] * len(lda_scores)
 
 plt.figure(figsize=(8, 6))
 bars = plt.bar(bar_positions, gensim_scores + lda_scores, color=bar_colors)
 
 # Customize the plot
 plt.ylabel('Scores')
-plt.title('Gensim and LDA Scores')
+plt.title('Fasttest-wn-sw-300 and LDA Scores')
 plt.xticks([])
 
 labels = list(colors.keys())
@@ -120,4 +125,4 @@ plt.legend(handles, labels, loc='upper left', bbox_to_anchor=(1, 1))
 plt.tight_layout()
 
 # Show the plot
-plt.savefig("images/lda_vs_gensim.png")
+plt.savefig("KeyBert/images/lda_vs_gensim.png")
