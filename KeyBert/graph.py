@@ -12,10 +12,10 @@ configurations = [
     "Max Sum High-Candidates all-mpnet-base-v2", "Max Sum High-Candidates all-MiniLM-L6-v2",
     "Max Sum Mid-Candidates Universal-Sentence-Encoder", "Max Sum High-Candidates Universal-Sentence-Encoder",
     "MMR High Diversity all-MiniLM-L6-v2", "MMR High Diversity all-mpnet-base-v2", "MMR Mid Diversity Universal-Sentence-Encoder",
-    "Max Sum Mid-Candidates Fasttest-wn-sw-300", "Base Fasttest-wn-sw-300", "Max Sum MegaSmall-Candidates Fasttest-wn-sw-300",
-    "Max Sum Low-Candidates Fasttest-wn-sw-300", "MMR Low Diversity Fasttest-wn-sw-300",
-    "MMR High Diversity Universal-Sentence-Encoder", "Max Sum High-Candidates Fasttest-wn-sw-300",
-    "MMR Mid Diversity Fasttest-wn-sw-300", "MMR High Diversity Fasttest-wn-sw-300"
+    "Max Sum Mid-Candidates Fasttext-wn-sw-300", "Base Fasttext-wn-sw-300", "Max Sum MegaSmall-Candidates Fasttext-wn-sw-300",
+    "Max Sum Low-Candidates Fasttext-wn-sw-300", "MMR Low Diversity Fasttext-wn-sw-300",
+    "MMR High Diversity Universal-Sentence-Encoder", "Max Sum High-Candidates Fasttext-wn-sw-300",
+    "MMR Mid Diversity Fasttext-wn-sw-300", "MMR High Diversity Fasttext-wn-sw-300"
 ]
 
 scores = [
@@ -26,7 +26,7 @@ scores = [
 ]
 
 # Grouping configurations based on prefix
-suffixes = ["all-MiniLM-L6-v2", "all-mpnet-base-v2", "Universal-Sentence-Encoder", "Fasttest-wn-sw-300"]
+suffixes = ["all-MiniLM-L6-v2", "all-mpnet-base-v2", "Universal-Sentence-Encoder", "Fasttext-wn-sw-300"]
 
 
 # Grouping scores
@@ -104,20 +104,22 @@ plt.tight_layout()
 plt.savefig("KeyBert/images/setup_scores.png")
 
 gensim_scores = [score for config, score in zip(configurations, scores)
-                 if "Fasttest-wn-sw-300" in config or config == "MMR High Diversity Universal-Sentence-Encoder"]
+                 if "Fasttext-wn-sw-300" in config]
+tensor_scores = [score for config, score in zip(configurations, scores) if config == config == "MMR High Diversity Universal-Sentence-Encoder"]
 lda_scores = [54.08073022312373, 53.172008113590266]
 
-bar_positions = np.arange(len(gensim_scores) + len(lda_scores))
-colors = {'Fasttest-wn-sw-300': 'deepskyblue', 'LDA': 'lightcoral'}
-bar_colors = [colors['Fasttest-wn-sw-300']] * len(gensim_scores) + [colors['LDA']] * len(lda_scores)
+bar_positions = np.arange(len(gensim_scores) + len(tensor_scores) + len(lda_scores))
+colors = {'Fasttext-wn-sw-300': 'deepskyblue', 'LDA': 'lightcoral', "Universal Sentence Encoder": "grey"}
+bar_colors = [colors['Fasttext-wn-sw-300']] * len(gensim_scores) + [colors["Universal Sentence Encoder"]]  * len(tensor_scores) + [colors['LDA']] * len(lda_scores)
 
 plt.figure(figsize=(8, 6))
-bars = plt.bar(bar_positions, gensim_scores + lda_scores, color=bar_colors)
+bars = plt.bar(bar_positions, gensim_scores + tensor_scores + lda_scores, color=bar_colors)
 
 # Customize the plot
 plt.ylabel('Scores')
-plt.title('Fasttest-wn-sw-300 and LDA Scores')
+plt.title('Fasttext-wn-sw-300, Universal Sentence Encoder, and LDA Scores')
 plt.xticks([])
+plt.xlabel("Different Configurations of Fasttext-wn-sw-300, USE, and LDA")
 
 labels = list(colors.keys())
 handles = [plt.Rectangle((0,0), 1, 1, color=colors[label]) for label in labels]
