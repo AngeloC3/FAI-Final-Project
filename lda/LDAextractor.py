@@ -41,7 +41,6 @@ class LDA_extractor:
         for topic in topics[1:]:
             topics_str = topics_str + f' + {topic[1]}'
 
-        topics_str
         topics_str = re.sub('[", ]', '', topics_str) #remove punctuation
         tags = [x.split('*') for x in topics_str.split("+")]
 
